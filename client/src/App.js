@@ -8,13 +8,13 @@ import Form from './components/Form/Form';
 import useStyles from './styles';
 
 function App() {
-  const {currentId, setCurrentId} = useState(null);
+  const [currentId, setCurrentId] = useState(null);
   const classes = useStyles();
   const dispatch = useDispatch();
 
   useEffect(()=>{
     dispatch(getPosts());
-  }, [dispatch])
+  }, [currentId, dispatch])
 
   return (
     <>

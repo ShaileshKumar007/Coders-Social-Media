@@ -17,17 +17,15 @@ function Post({ post, setCurrentId }) {
       </div>
 
       <div className={classes.overlay2}>
-        <Button style={{ color: 'white' }} size='small' onClick={() => setCurrentId(post._id)}>
-          <MoreHorizIcon fontSize='default' />
-        </Button>
+        <Button style={{ color: 'white' }} size="small" onClick={() => setCurrentId(post._id)}> <MoreHorizIcon /> </Button>
       </div>
 
       <div className={classes.details}>
-        <Typography variant='body2' color='textSecondary'> hello </Typography>
+        <Typography variant='body2' color='textSecondary'> {post.tags.map((tag) => `#${tag} `)} </Typography>
       </div>
-
+      <Typography className={classes.title} variant='h5' gutterBottom> {post.title} </Typography>
       <CardContent>
-        <Typography className={classes.title} variant='h5' gutterBottom> {post.message} </Typography>
+        <Typography variant='h5' gutterBottom> {post.message} </Typography>
       </CardContent>
 
       <CardActions className={classes.cardActions}>
