@@ -5,23 +5,36 @@ import Icon from './icon';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import useStyles from './styles';
 import Input from './Input';
+import { signin, signup} from '../../actions/auth';
+
+
+const intitialState = {firstName:'', lastName:'', email:'', password:'', confirmPasword:''};
 
 const Auth = () => {
 
 const classes = useStyles();
 const [showPassword, setShowPassword] = useState(false);
 const [isSignup, setIsSignup] = useState(false);
+const [formData, setFormData] = useState(intitialState);
 // const isSignup = true;
 
 
 const handleShowPassword = () => setShowPassword((prevShowPassword) => !prevShowPassword);  // when u chnging the state using old state, u need to create callback fxn, then take prev state and toggle it
 
-const handleSubmit = () => {
+const handleSubmit = (e) => {
+    e.preventDefault();
+    
+    if(isSignup){
+        dispatch(signup(formData, history));
+    }
+    else{
+        dispatch(signin(formData, history));
 
+    }
 }
 
-const handleChange = () => {
-
+const handleChange = (e) => {
+    setFormData({...formData, [e.target.name] : e.target.value});
 }
 
 const switchMode = () => {
