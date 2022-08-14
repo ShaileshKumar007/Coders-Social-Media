@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import { Avatar, Button, Paper, Grid, Typography, Container } from '@material-ui/core';
 // import { GoogleLogin } from 'react-google-login';
-import Icon from './icon';
+// import Icon from './icon';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import useStyles from './styles';
 import Input from './Input';
@@ -39,7 +39,7 @@ const handleChange = (e) => {
 
 const switchMode = () => {
     setIsSignup((prevIsSignup) => !prevIsSignup);
-    // handleShowPassword(false);
+    setShowPassword(false);
 }
 
 // const googleSuccess = async (res) => {
