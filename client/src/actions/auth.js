@@ -1,5 +1,5 @@
 import { AUTH } from '../constants/actionTypes';
-import * as api from '../api';
+import * as api from '../api/index.js';
 
 export const signin = (formData, history) => async (dispatch) => {
     try {
@@ -11,7 +11,7 @@ export const signin = (formData, history) => async (dispatch) => {
 
         history.push('/');
     } catch (error) {
-        console.log(error);
+        console.log(error); 
     }
 
 }

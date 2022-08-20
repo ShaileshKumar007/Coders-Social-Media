@@ -1,5 +1,7 @@
 import React, {useState} from 'react';
 import { Avatar, Button, Paper, Grid, Typography, Container } from '@material-ui/core';
+import { useHistory } from "react-router-dom";
+import {useDispatch} from 'react-redux';
 // import { GoogleLogin } from 'react-google-login';
 // import Icon from './icon';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
@@ -8,14 +10,16 @@ import Input from './Input';
 import { signin, signup} from '../../actions/auth';
 
 
-const intitialState = {firstName:'', lastName:'', email:'', password:'', confirmPasword:''};
+const initialState = { firstName: '', lastName: '', email: '', password: '', confirmPassword: '' };
 
 const Auth = () => {
 
 const classes = useStyles();
 const [showPassword, setShowPassword] = useState(false);
 const [isSignup, setIsSignup] = useState(false);
-const [formData, setFormData] = useState(intitialState);
+const [formData, setFormData] = useState(initialState);
+const dispatch = useDispatch();
+const history = useHistory();
 // const isSignup = true;
 
 
