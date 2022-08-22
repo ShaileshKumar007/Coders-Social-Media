@@ -30,6 +30,17 @@ function Form({currentId, setCurrentId}) {
     }
     clear();
   }
+
+  if(!user?.result?.name){
+    return (
+      <Paper className={classes.paper}>
+        <Typography variant='h6' align='center'>
+          Please Sign In to create new Posts and to like other's Post's!
+        </Typography>
+
+      </Paper>
+    )
+  }
   const clear = () => {
     setCurrentId(null);
     setPostData({  title: '', message: '', tags: '', selectedFile: '' });
